@@ -1,0 +1,36 @@
+header {
+    display: flex;
+    justify-content: space-between;
+    background-color: rgb(255, 255, 255);
+}
+
+.logo {
+    font-size: 14px;
+    align-self: center;
+    justify-content: center;
+    padding: 0 4rem;
+}
+
+.logo>h1>span {
+    color: var(--lightBlue);
+}
+
+.header-menu {
+    display: flex;
+    height: 100px;
+    gap: 2rem;
+    padding: 0 3rem;
+    justify-content: center;
+    font-size: 1.4rem;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+    align-self: center;
+    font-style: bold;
+}
+
+a:hover {
+    color: var(--lightBlue);
+}
