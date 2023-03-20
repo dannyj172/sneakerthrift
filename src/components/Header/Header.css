@@ -5,7 +5,7 @@ header {
 }
 
 .logo {
-    font-size: 14px;
+    font-size: 15px;
     align-self: center;
     justify-content: center;
     padding: 0 4rem;
@@ -24,13 +24,16 @@ header {
     font-size: 1.4rem;
 }
 
-a {
+.header-menu>a {
     text-decoration: none;
     color: black;
     align-self: center;
     font-style: bold;
+    text-transform: uppercase;
+    font-weight: 600;
+    font-size: 1.3rem;
 }
 
-a:hover {
+.header-menu>a:hover {
     color: var(--lightBlue);
 }

@@ -1,0 +1,60 @@
+.container {
+    width: 85%;
+    max-width: 65em;
+    margin: 0 auto;
+}
+
+.spacing>*+* {
+    margin-top: var(--spacer, 2rem);
+}
+
+.primary-title {
+    font-size: 4rem;
+    font-size: clamp(3rem, calc(5vw + 1rem), 4.5rem);
+    line-height: 1;
+    text-transform: uppercase;
+}
+
+
+.home-introduction {
+    color: white;
+    text-align: center;
+    padding: 15em 0;
+    background: #222;
+}
+
+.home-button {
+    display: inline-block;
+    text-decoration: none;
+    color: white;
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 1.125rem;
+    padding: .5em 1.25em;
+    background: var(--complimentary);
+    border-radius: .25em;
+    -webkit-transition: opacity 250ms linear, -webkit-transform 250ms ease-in-out;
+    transition: opacity 250ms linear, -webkit-transform 250ms ease-in-out;
+    transition: transform 250ms ease-in-out, opacity 250ms linear;
+    transition: transform 250ms ease-in-out, opacity 250ms linear, -webkit-transform 250ms ease-in-out;
+    -moz-transition: opacity 250ms linear, -webkit-transform 250ms ease-in-out;
+    -ms-transition: opacity 250ms linear, -webkit-transform 250ms ease-in-out;
+    -o-transition: opacity 250ms linear, -webkit-transform 250ms ease-in-out;
+}
+
+.home-button:hover,
+.home-button:focus {
+    -webkit-transform: scale(1.1);
+    transform: scale(1.1);
+    opacity: .9;
+}
+
+@supports (background-blend-mode: multiply) {
+    .home-introduction {
+        background: url(../../assets/shoe-6.png), radial-gradient(#444, #111);
+        background-blend-mode: multiply;
+        background-attachment: fixed;
+        background-repeat: no-repeat;
+        background-position: center center;
+    }
+}
