@@ -58,3 +58,112 @@
         background-position: center center;
     }
 }
+
+
+.showcase {
+    display: flex;
+    justify-content: center;
+    margin-top: 60px;
+}
+
+.showcase-img {
+    float: left;
+    margin: 30px;
+    width: 450px;
+    height: 450px;
+    border: solid var(--lightBlue) 10px;
+    border-radius: 30%;
+    -webkit-border-radius: 30%;
+    -moz-border-radius: 30%;
+    -ms-border-radius: 30%;
+    -o-border-radius: 30%;
+}
+
+.listings-title {
+    text-align: center;
+    position: relative;
+    padding-top: 5rem;
+    padding-bottom: 1rem;
+    font-size: 2rem;
+}
+
+.listings-title::after {
+    /*after is used to place something after anything*/
+    content: "";
+    /*will place divider after title content*/
+    background: var(--lightBlue);
+    /*color of divider*/
+    width: 80px;
+    /*these all are the features of divider*/
+    height: 5px;
+    border-radius: 5px;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    /*50% from l.H.S*/
+    transform: translateX(-50%);
+}
+
+.listings {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    justify-content: center;
+}
+
+.card {
+    width: min-content;
+    padding: 20px;
+    margin: 20px 20px;
+    background: #fff;
+    box-shadow: rgba(6, 24, 44, 0.4) 0px 0px 0px 2px, rgba(6, 24, 44, 0.65) 0px 4px 6px -1px, rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
+    transition: .4s ease;
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+}
+
+.card .card-image {
+    width: 300px;
+    padding: 0 20px;
+    text-align: center;
+    background: #f4f7f8;
+    border-radius: 12px;
+}
+
+.card .card-image img {
+    width: 100%;
+    max-height: 250px;
+}
+
+.card .card-content h3 {
+    color: #222;
+    font-size: 22px;
+    margin-top: 20px;
+}
+
+.card .card-content p {
+    color: #555;
+    font-size: 18px;
+    font-weight: 500;
+    margin: 8px 0 22px;
+    text-align: justify;
+}
+
+.card-button {
+    display: inline-block;
+    text-decoration: none;
+    color: white;
+    font-weight: 700;
+    font-size: 1.125rem;
+    width: 100%;
+    padding: .5em;
+    background: var(--complimentary);
+    border-radius: .25em;
+    border: none;
+}
+
+.card-button:hover {
+    background-color: var(--lightBlue);
+}
