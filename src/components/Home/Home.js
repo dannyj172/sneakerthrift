@@ -41,8 +41,8 @@ export const Home = () => {
                         <div className="card-content">
                             <h3>DARK GREEN FOREST NIKE AIR FORCE 1 LIMITED</h3>
                             <p>$15</p>
+                            <button className="btn card-button">View Listing</button>
                         </div>
-                        <button className="btn card-button">View Listing</button>
                     </div>
 
                     <div className="card">
