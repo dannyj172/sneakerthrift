@@ -1,3 +1,5 @@
+/* Introduction */
+
 .introduction-container {
     width: 85%;
     max-width: 65em;
@@ -14,7 +16,6 @@
     line-height: 1;
     text-transform: uppercase;
 }
-
 
 .home-introduction {
     color: white;
@@ -58,6 +59,7 @@
     }
 }
 
+/* Showcase */
 
 .showcase {
     display: flex;
@@ -77,6 +79,8 @@
     -ms-border-radius: 30%;
     -o-border-radius: 30%;
 }
+
+/* Latest Listings  */
 
 .listings-title {
     text-align: center;
@@ -197,7 +201,6 @@
     gap: 2rem;
     flex-direction: column;
     text-transform: uppercase;
-    /* color: white; */
 }
 
 .left-t>:nth-child(1) {
@@ -282,12 +285,9 @@
 
 .row {
     display: flex;
-    /*flexible content*/
     align-items: center;
     flex-wrap: wrap;
-    /*wrap place single line or multi lines in given space.*/
     justify-content: space-around;
-    /*"Display the flex items with space before, between, and after the lines:"*/
 }
 
 .brands {
@@ -301,11 +301,10 @@
 .col-5 img {
     width: 100%;
     cursor: pointer;
-    filter: grayscale(100%)
-        /*logo color would be gray*/
+    filter: grayscale(100%);
+    -webkit-filter: grayscale(100%);
 }
 
 .col-5 img:hover {
     filter: grayscale(0);
-    /*when hover on brands, it will remove gray color*/
 }
