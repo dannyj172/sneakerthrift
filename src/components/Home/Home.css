@@ -1,4 +1,4 @@
-.container {
+.introduction-container {
     width: 85%;
     max-width: 65em;
     margin: 0 auto;
@@ -179,4 +179,133 @@
 
 .card-button:hover {
     background-color: var(--lightBlue);
+}
+
+/* Testimonials */
+
+.testimonials {
+    margin-top: 5rem;
+    display: flex;
+    gap: 1rem;
+    padding: 0 2rem;
+}
+
+
+.left-t {
+    display: flex;
+    flex: 1 1;
+    gap: 2rem;
+    flex-direction: column;
+    text-transform: uppercase;
+    /* color: white; */
+}
+
+.left-t>:nth-child(1) {
+    font-weight: bold;
+}
+
+.left-t>:nth-child(2),
+.left-t>:nth-child(3) {
+    font-weight: bold;
+    font-size: 3rem;
+}
+
+.left-t>:nth-child(4) {
+    text-transform: none;
+    text-align: justify;
+    letter-spacing: 2px;
+    line-height: 40px;
+}
+
+.right-t {
+    flex: 1;
+    position: relative;
+}
+
+.right-t>img {
+    position: absolute;
+    width: 17rem;
+    height: 20rem;
+    object-fit: cover;
+    right: 8rem;
+    top: 2rem;
+}
+
+.right-t>:nth-child(1) {
+    position: absolute;
+    width: 17rem;
+    height: 20rem;
+    border: 2px solid var(--lightBlue);
+    background-color: transparent;
+    right: 9rem;
+    top: 0.9rem;
+}
+
+
+.right-t>:nth-child(2) {
+    position: absolute;
+    width: 17rem;
+    height: 19rem;
+    right: 7rem;
+    top: 4rem;
+    background: var(--lightBlue);
+}
+
+.arrows {
+    display: flex;
+    gap: 1rem;
+    position: absolute;
+    bottom: 1rem;
+    left: 3rem;
+    filter: invert(30%) sepia(30%) saturate(291%) hue-rotate(136deg) brightness(85%) contrast(87%);
+    -webkit-filter: invert(30%) sepia(30%) saturate(291%) hue-rotate(136deg) brightness(85%) contrast(87%);
+}
+
+.arrows>img {
+    width: 1.5rem;
+    cursor: pointer;
+}
+
+.left-t-coloredtext {
+    color: var(--complimentary);
+}
+
+/* Brands */
+
+.brands-title {
+    text-align: center;
+    position: relative;
+    padding-top: 5rem;
+    padding-bottom: 3rem;
+    font-size: 2rem;
+}
+
+.row {
+    display: flex;
+    /*flexible content*/
+    align-items: center;
+    flex-wrap: wrap;
+    /*wrap place single line or multi lines in given space.*/
+    justify-content: space-around;
+    /*"Display the flex items with space before, between, and after the lines:"*/
+}
+
+.brands {
+    margin: 100px auto;
+}
+
+.col-5 {
+    width: 160px;
+}
+
+.col-5 img {
+    width: 100%;
+    cursor: pointer;
+    filter: grayscale(100%)
+        /*logo color would be gray*/
+}
+
+.col-5 img:hover {
+    filter: grayscale(0);
+    /*when hover on brands, it will remove gray color*/
 }
