@@ -47,9 +47,7 @@ export const Home = () => {
             </div>
 
             <div className="listings-container">
-
                 <h2 className="listings-title">Latest Listings</h2>
-
                 <div className='listings'>
 
                     <div className="card">
