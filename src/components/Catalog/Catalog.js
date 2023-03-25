@@ -6,13 +6,22 @@ import ebay2 from "../../assets/ebay2.jpg"
 import ebay3 from "../../assets/ebay3.jpg"
 
 export const Catalog = () => {
-
     return (
         <div className="catalog">
             < div className="listings-container" >
                 <h2 className="listings-title">Catalog</h2>
+
+                <div className="listings-sort">
+                    <select name="sort" className="sort">
+                        <option value="Newest">Newest</option>
+                        <option value="Oldest">Oldest</option>
+                        <option value="Price Up">Price Up</option>
+                        <option value="Price Down">Price Down</option>
+
+                    </select>
+                </div>
+
                 <div className='listings'>
-
                     <div className="card">
                         <div className="card-image">
                             <img src={ebay1} alt="..." />
@@ -122,7 +131,6 @@ export const Catalog = () => {
                             <button className="btn card-button">View Listing</button>
                         </div>
                     </div>
-
                 </div>
 
             </div >
