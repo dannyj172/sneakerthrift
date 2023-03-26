@@ -1,37 +1,37 @@
-import React from 'react'
+import React from 'react';
 import './Footer.css';
 
 import { Link } from 'react-router-dom';
 
 export const Footer = () => {
     return (
-        <div class="footer-container">
-            <div class="footer">
-                <div class="footer-heading footer-1">
+        <div className="footer-container">
+            <div className="footer">
+                <div className="footer-heading footer-1">
                     <h2>About us</h2>
-                    <Link href="#">Blog</Link>
-                    <Link href="#">Customers</Link>
-                    <Link href="#">What we do</Link>
-                    <Link href="#">Terms of Service</Link>
+                    <Link to="#">Blog</Link>
+                    <Link to="#">Customers</Link>
+                    <Link to="#">What we do</Link>
+                    <Link to="#">Terms of Service</Link>
                 </div>
-                <div class="footer-heading footer-2">
+                <div className="footer-heading footer-2">
                     <h2>Contact us</h2>
-                    <Link href="#">Jobs</Link>
-                    <Link href="#">FAQ</Link>
-                    <Link href="#">Support</Link>
-                    <Link href="#">Contact</Link>
+                    <Link to="#">Jobs</Link>
+                    <Link to="#">FAQ</Link>
+                    <Link to="#">Support</Link>
+                    <Link to="#">Contact</Link>
                 </div>
-                <div class="footer-heading footer-3">
+                <div className="footer-heading footer-3">
                     <h2>Social Media</h2>
-                    <Link href="#">Twitter</Link>
-                    <Link href="#">Youtube</Link>
-                    <Link href="#">Facebook</Link>
-                    <Link href="#">Instagram</Link>
+                    <Link to="#">Twitter</Link>
+                    <Link to="#">Youtube</Link>
+                    <Link to="#">Facebook</Link>
+                    <Link to="#">Instagram</Link>
                 </div>
-                <div class="footer-email-form">
+                <div className="footer-email-form">
                     <h2>Join us</h2>
-                    <input type="email" placeholder="Enter your email address" id="footer-email" />
-                    <input type="submit" value="Submit" id="footer-email-btn" />
+                    <input type="email" placeholder="Enter your email address" className="footer-email" />
+                    <input type="submit" value="Submit" className="footer-email-btn" />
                 </div>
             </div>
         </div>

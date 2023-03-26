@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 import './Catalog.css';
 import ebay1 from "../../assets/ebay1.jpg"
 import ebay2 from "../../assets/ebay2.jpg"
@@ -23,112 +23,112 @@ export const Catalog = () => {
 
                 <div className='listings'>
                     <div className="card">
-                        <div className="card-image">
+                        <div className="listing-image">
                             <img src={ebay1} alt="..." />
                         </div>
-                        <div className="card-content">
+                        <div className="listing-content">
                             <h3>DARK GREEN FOREST NIKE AIR FORCE 1 LIMITED</h3>
-                            <p>$15</p>
-                            <button className="btn card-button">View Listing</button>
+                            <p>$15.00</p>
+                            <button className="btn listing-button">View Listing</button>
                         </div>
                     </div>
 
                     <div className="card">
-                        <div className="card-image">
+                        <div className="listing-image">
                             <img src={ebay2} alt="..." />
                         </div>
-                        <div className="card-content">
+                        <div className="listing-content">
                             <h3>NIKE AIR FORCE 1 UTILITY (GS) BLACK-GUM BROWN SZ 6 123 456 789</h3>
-                            <p>$100</p>
-                            <button className="btn card-button">View Listing</button>
+                            <p>$100.00</p>
+                            <button className="btn listing-button">View Listing</button>
                         </div>
                     </div>
 
                     <div className="card">
-                        <div className="card-image">
+                        <div className="listing-image">
                             <img src={ebay3} alt="..." />
                         </div>
-                        <div className="card-content">
+                        <div className="listing-content">
                             <h3>nike air force 1 mid SF AF1 youth shoes size 6.5 mushroom</h3>
-                            <p>$30</p>
-                            <button className="btn card-button">View Listing</button>
+                            <p>$30.00</p>
+                            <button className="btn listing-button">View Listing</button>
                         </div>
                     </div>
 
                     <div className="card">
-                        <div className="card-image">
+                        <div className="listing-image">
                             <img src={ebay2} alt="..." />
                         </div>
-                        <div className="card-content">
+                        <div className="listing-content">
                             <h3>NIKE AIR FORCE 1 UTILITY (GS) BLACK-GUM BROWN SZ 6 123 456 789</h3>
-                            <p>$100</p>
-                            <button className="btn card-button">View Listing</button>
+                            <p>$100.00</p>
+                            <button className="btn listing-button">View Listing</button>
                         </div>
                     </div>
 
                     <div className="card">
-                        <div className="card-image">
+                        <div className="listing-image">
                             <img src={ebay1} alt="..." />
                         </div>
-                        <div className="card-content">
+                        <div className="listing-content">
                             <h3>DARK GREEN FOREST NIKE AIR FORCE 1 LIMITED</h3>
-                            <p>$15</p>
-                            <button className="btn card-button">View Listing</button>
+                            <p>$15.00</p>
+                            <button className="btn listing-button">View Listing</button>
                         </div>
                     </div>
 
                     <div className="card">
-                        <div className="card-image">
+                        <div className="listing-image">
                             <img src={ebay3} alt="..." />
                         </div>
-                        <div className="card-content">
+                        <div className="listing-content">
                             <h3>nike air force 1 mid SF AF1 youth shoes size 6.5 mushroom</h3>
-                            <p>$30</p>
-                            <button className="btn card-button">View Listing</button>
+                            <p>$30.00</p>
+                            <button className="btn listing-button">View Listing</button>
                         </div>
                     </div>
 
                     <div className="card">
-                        <div className="card-image">
+                        <div className="listing-image">
                             <img src={ebay1} alt="..." />
                         </div>
-                        <div className="card-content">
+                        <div className="listing-content">
                             <h3>DARK GREEN FOREST NIKE AIR FORCE 1 LIMITED</h3>
-                            <p>$15</p>
-                            <button className="btn card-button">View Listing</button>
+                            <p>$15.00</p>
+                            <button className="btn listing-button">View Listing</button>
                         </div>
                     </div>
 
                     <div className="card">
-                        <div className="card-image">
+                        <div className="listing-image">
                             <img src={ebay3} alt="..." />
                         </div>
-                        <div className="card-content">
+                        <div className="listing-content">
                             <h3>nike air force 1 mid SF AF1 youth shoes size 6.5 mushroom</h3>
-                            <p>$30</p>
-                            <button className="btn card-button">View Listing</button>
+                            <p>$30.00</p>
+                            <button className="btn listing-button">View Listing</button>
                         </div>
                     </div>
 
                     <div className="card">
-                        <div className="card-image">
+                        <div className="listing-image">
                             <img src={ebay2} alt="..." />
                         </div>
-                        <div className="card-content">
+                        <div className="listing-content">
                             <h3>NIKE AIR FORCE 1 UTILITY (GS) BLACK-GUM BROWN SZ 6 123 456 789</h3>
-                            <p>$100</p>
-                            <button className="btn card-button">View Listing</button>
+                            <p>$100.00</p>
+                            <button className="btn listing-button">View Listing</button>
                         </div>
                     </div>
 
                     <div className="card">
-                        <div className="card-image">
+                        <div className="listing-image">
                             <img src={ebay3} alt="..." />
                         </div>
-                        <div className="card-content">
+                        <div className="listing-content">
                             <h3>nike air force 1 mid SF AF1 youth shoes size 6.5 mushroom</h3>
-                            <p>$30</p>
-                            <button className="btn card-button">View Listing</button>
+                            <p>$30.00</p>
+                            <button className="btn listing-button">View Listing</button>
                         </div>
                     </div>
                 </div>

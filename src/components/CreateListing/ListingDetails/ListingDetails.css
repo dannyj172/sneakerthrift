@@ -1,0 +1,67 @@
+.listing-container {
+    max-width: 1080px;
+    margin: auto;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.listing {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.listing-details {
+    flex-basis: 45%;
+    min-width: 300px;
+    margin-bottom: 4rem;
+}
+
+.listing-details img {
+    max-width: 100%;
+    padding: 50px 0px;
+    border-radius: 15%;
+    -webkit-border-radius: 15%;
+    -moz-border-radius: 15%;
+    -ms-border-radius: 15%;
+    -o-border-radius: 15%;
+}
+
+.listing-details h1 {
+    font-size: 50px;
+    line-height: 60px;
+    margin: 25px;
+}
+
+.listing-details h4 {
+    font-size: 24px;
+    margin-left: 25px;
+    margin-bottom: 20px;
+}
+
+.listing-details h3 {
+    font-size: 20px;
+    margin-left: 25px;
+}
+
+.listing-details p {
+    font-size: 18px;
+    margin-left: 25px;
+}
+
+.listing-details .fa-indent {
+    color: var(--complimentary);
+    margin-left: 5px;
+    font-size: 21px;
+}
+
+/*design header button explore now*/
+.listing-details .phone-number {
+    display: inline-block;
+    background-color: var(--complimentary);
+    color: #fff;
+    padding: 8px 30px;
+    margin: 0 0 30px 25px;
+    border-radius: 30px;
+}

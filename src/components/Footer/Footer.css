@@ -54,7 +54,7 @@
     margin-bottom: 2rem;
 }
 
-#footer-email {
+.footer-email {
     width: 250px;
     height: 40px;
     border-top-left-radius: 4px;
@@ -66,23 +66,23 @@
     margin-bottom: 1rem;
 }
 
-#footer-email::-webkit-input-placeholder {
+.footer-email::-webkit-input-placeholder {
     color: #b1b1b1;
 }
 
-#footer-email:-ms-input-placeholder {
+.footer-email:-ms-input-placeholder {
     color: #b1b1b1;
 }
 
-#footer-email::-ms-input-placeholder {
+.footer-email::-ms-input-placeholder {
     color: #b1b1b1;
 }
 
-#footer-email::placeholder {
+.footer-email::placeholder {
     color: #b1b1b1;
 }
 
-#footer-email-btn {
+.footer-email-btn {
     width: 100px;
     height: 40px;
     font-size: 1rem;
@@ -94,7 +94,7 @@
     border: none;
 }
 
-#footer-email-btn:hover {
+.footer-email-btn:hover {
     cursor: pointer;
     background-color: var(--complimentary);
     -webkit-transition: all 0.2s ease-in-out;

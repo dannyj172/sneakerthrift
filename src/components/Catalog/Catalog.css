@@ -7,19 +7,14 @@
 }
 
 .catalog .listings-title::after {
-    /*after is used to place something after anything*/
     content: "";
-    /*will place divider after title content*/
     background: var(--lightBlue);
-    /*color of divider*/
     width: 80px;
-    /*these all are the features of divider*/
     height: 5px;
     border-radius: 5px;
     position: absolute;
     bottom: 0;
     left: 50%;
-    /*50% from l.H.S*/
     transform: translateX(-50%);
 }
 
@@ -45,12 +40,12 @@
     -o-border-radius: 12px;
 }
 
-.catalog .card .card-image {
+.catalog .card .listing-image {
     width: 300px;
     padding: 0 20px;
 }
 
-.catalog .card .card-image img {
+.catalog .card .listing-image img {
     width: 100%;
     max-height: 250px;
     border-radius: 12px;
@@ -60,13 +55,13 @@
     -o-border-radius: 12px;
 }
 
-.catalog .card .card-content h3 {
+.catalog .card .listing-content h3 {
     color: #222;
     font-size: 22px;
     margin-top: 10px;
 }
 
-.catalog .card .card-content p {
+.catalog .card .listing-content p {
     color: #444;
     font-size: 20px;
     font-weight: 500;
@@ -77,7 +72,7 @@
     left: 7%;
 }
 
-.catalog .card-button {
+.catalog .listing-button {
     display: inline-block;
     position: absolute;
     bottom: 5%;
@@ -97,13 +92,11 @@
     -o-border-radius: .25em;
 }
 
-.catalog .card-button:hover {
+.catalog .listing-button:hover {
     background-color: var(--lightBlue);
 }
 
 /* Sort By */
-
-
 .sort {
     display: block;
     margin: 1rem auto;
