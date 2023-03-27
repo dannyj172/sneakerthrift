@@ -1,12 +1,12 @@
 import "./ListingDetails.css";
-import ebay1 from "../../../assets/ebay1.jpg";
+import ebay1 from "../../assets/ebay1.jpg";
 
 export const ListingDetails = () => {
     return (
         <div class="listing-container">
             <div className="listing">
                 <div className="listing-details">
-                    <img src={ebay1} width="100%" alt="img" />
+                    <img src={ebay1} alt="img" />
                 </div>
 
                 <div className="listing-details">

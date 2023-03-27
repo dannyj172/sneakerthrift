@@ -1,27 +1,34 @@
-.create-container {
+.login-container {
     display: flex;
-    justify-content: center;
+    /* justify-content: center; */
     align-items: center;
+    margin-bottom: 3rem;
 }
 
-.create-container .form {
-    margin: 50px;
+.login-container img {
+    margin: 0 130px 0 130px;
+    height: auto;
+    width: 800px;
 }
 
-.create-container .form__title {
+.login-container .form {
+    margin: 100px;
+}
+
+.login-container .form__title {
     color: var(--complimentary);
     font-weight: bold;
     margin-bottom: 2.2rem;
     font-size: var(--big-font-size);
 }
 
-.create-container .form__div {
+.login-container .form__div {
     position: relative;
     height: 48px;
     margin-bottom: 3.5rem;
 }
 
-.create-container .form__input {
+.login-container .form__input {
     position: absolute;
     top: 0;
     left: 0;
@@ -31,36 +38,45 @@
     border-top: none;
     border-left: none;
     border-right: none;
-    border-bottom: 1px solid var(--complimentary);
+    border-bottom: 1px solid var(--lightBlue);
     outline: none;
     background: none;
     z-index: 1;
     padding-left: 40px;
-    color: var(--complimentary);
+    color: var(--lightBlue);
 }
 
 
-.create-container .margin__diff {
+.login-container .margin__diff {
     margin-bottom: 0;
 }
 
 
-.create-container .form__label {
+.login-container .form__label {
     position: absolute;
     left: 2.4rem;
     top: 0.5rem;
     padding: 0 .25rem;
     background-color: #fff;
-    font-size: 1.3rem;
     color: var(--lightBlue);
+    font-size: var(--small-font-size);
     transition: .3s;
     z-index: 1;
     pointer-events: none;
     background: none;
 }
 
+.login-container .form__icon {
+    position: absolute;
+    z-index: 10;
+    height: auto;
+    width: 30px;
+    top: 0.25rem;
+    color: var(--lightBlue);
+}
 
-.create-container .form__button {
+
+.login-container .form__button {
     position: relative;
     width: 440px;
     height: 60px;
@@ -74,33 +90,33 @@
     cursor: pointer;
 }
 
-.create-container .form__button:hover {
+.login-container .form__button:hover {
     transform: scale(103%);
     transform: translate(-7px, -7px);
     box-shadow: 7px 7px #12192c46;
 }
 
-.create-container .form__input:focus+.form__label {
+.login-container .form__input:focus+.form__label {
     top: -1.8rem;
     left: 2.3rem;
     color: var(--complimentary);
 }
 
-.create-container .form__input:focus {
+.login-container .form__input:focus {
     border-bottom: 1px solid var(--complimentary);
 }
 
-.create-container .form__icon.focus {
+.login-container .form__icon.focus {
     color: var(--complimentary);
     transition: .3s ease-in-out;
 }
 
-.create-container .form__input:not(:placeholder-shown).form__input:not(:focus)+.form__label {
+.login-container .form__input:not(:placeholder-shown).form__input:not(:focus)+.form__label {
     top: -1.8rem;
     left: 2.3rem;
     color: var(--complimentary);
 }
 
-.create-container .form__input:not(:placeholder-shown).form__input:not(:focus) {
+.login-container .form__input:not(:placeholder-shown).form__input:not(:focus) {
     border-bottom: 1px solid var(--complimentary);
 }

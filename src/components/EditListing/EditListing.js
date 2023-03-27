@@ -1,12 +1,12 @@
-import "./CreateListing.css";
+import "./EditListing.css";
 
-export const CreateListing = () => {
+export const EditListing = () => {
 
     return (
-        <div className="create-container">
+        <div className="edit-container">
 
             <form action="" className="form">
-                <h1 className="form__title">Create Listing</h1>
+                <h1 className="form__title">Edit Listing</h1>
 
                 <div className="form__div">
                     <input

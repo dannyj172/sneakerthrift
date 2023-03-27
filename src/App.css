@@ -1,6 +1,10 @@
 :root {
     --lightBlue: #89b8bc;
     --complimentary: #569ca2;
+
+    --big-font-size: 3.8rem;
+    --normal-font-size: 1.4rem;
+    --small-font-size: 1.1rem;
 }
 
 * {
