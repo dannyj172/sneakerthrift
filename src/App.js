@@ -1,11 +1,13 @@
 import './App.css';
+
 import { Routes, Route } from 'react-router-dom';
+
 import { Header } from './components/Header/Header';
-import { Home } from './components/Home/Home';
 import { Footer } from './components/Footer/Footer';
+import { NotFound } from './components/NotFound/NotFound';
+import { Home } from './components/Home/Home';
 import { Catalog } from './components/Catalog/Catalog';
 import { ListingDetails } from './components/ListingDetails/ListingDetails';
-import { NotFound } from './components/NotFound/NotFound';
 import { Login } from './components/Login/Login';
 import { Register } from './components/Register/Register';
 import { CreateListing } from './components/CreateListing/CreateListing';
@@ -21,10 +23,10 @@ function App() {
         <Route path='/login' element={<Login />} />
         <Route path='/logout' element={<Logout />} />
         <Route path='/register' element={<Register />} />
-        <Route path='/create-listing' element={<CreateListing />} />
         <Route path='/catalog' element={<Catalog />} />
-        <Route path='/details' element={<ListingDetails />} />
-        <Route path='/edit' element={<EditListing />} />
+        <Route path='/catalog/:listingId' element={<ListingDetails />} />
+        <Route path='/create-listing' element={<CreateListing />} />
+        <Route path='/catalog/:listingId/edit' element={<EditListing />} />
         <Route path='*' element={<NotFound />} />
       </Routes>
       <Footer />
