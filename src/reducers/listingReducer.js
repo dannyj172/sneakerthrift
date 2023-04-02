@@ -1,6 +1,6 @@
-export const gameReducer = (state, action) => {
+export const listingReducer = (state, action) => {
     switch (action.type) {
-        case 'GAME_FETCH':
+        case 'LISTING_FETCH':
             return { ...action.payload };
         case 'COMMENT_ADD':
             return { ...state, comments: [...state.comments, { ...action.payload, author: { email: action.userEmail } }], }

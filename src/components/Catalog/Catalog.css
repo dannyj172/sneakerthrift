@@ -81,6 +81,7 @@
     color: white;
     font-weight: 700;
     font-size: 1.125rem;
+    text-align: center;
     width: 90%;
     padding: .5em;
     background: var(--complimentary);
@@ -94,6 +95,25 @@
 
 .catalog .listing-button:hover {
     background-color: var(--lightBlue);
+}
+
+/* No listings */
+
+.catalog .no-listings {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 120px;
+    margin-bottom: 150px;
+}
+
+.catalog svg {
+    font-size: 5rem;
+    margin-bottom: 20px;
+}
+
+.catalog .no-listings-text {
+    font-size: 2rem;
 }
 
 /* Sort By */

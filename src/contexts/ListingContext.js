@@ -1,65 +1,65 @@
 import { createContext, useContext, useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { gameServiceFactory } from '../services/gameService';
+import { listingServiceFactory } from '../services/listingService';
 
-export const GameContext = createContext();
+export const ListingContext = createContext();
 
-export const GameProvider = ({
+export const ListingProvider = ({
     children,
 }) => {
     const navigate = useNavigate();
-    const [games, setGames] = useState([]);
-    const gameService = gameServiceFactory(); // auth.accessToken
+    const [listings, setListings] = useState([]);
+    const listingService = listingServiceFactory(); // auth.accessToken
 
     useEffect(() => {
-        gameService.getAll()
+        listingService.getAll()
             .then(result => {
-                setGames(result)
+                setListings(result)
             })
     }, []);
 
-    const onCreateGameSubmit = async (data) => {
-        const newGame = await gameService.create(data);
+    const onCreateListingSubmit = async (data) => {
+        const newListing = await listingService.create(data);
 
-        setGames(state => [...state, newGame]);
+        setListings(state => [...state, newListing]);
 
         navigate('/catalog');
     }
 
 
-    const onGameEditSubmit = async (values) => {
-        const result = await gameService.edit(values._id, values);
+    const onListingEditSubmit = async (values) => {
+        const result = await listingService.edit(values._id, values);
 
-        setGames(state => state.map(x => x._id === values._id ? result : x))
+        setListings(state => state.map(x => x._id === values._id ? result : x))
 
         navigate(`/catalog/${values._id}`);
     }
 
-    const getGame = (gameId) => {
-        return games.find(game => game._id === gameId);
+    const getListing = (listingId) => {
+        return listings.find(listing => listing._id === listingId);
     }
 
-    const deleteGame = (gameId) => {
-        setGames(state => state.filter(game => game._id !== gameId));
+    const deleteListing = (listingId) => {
+        setListings(state => state.filter(listing => listing._id !== listingId));
     }
 
     const contextValues = {
-        games,
-        onCreateGameSubmit,
-        onGameEditSubmit,
-        getGame,
-        deleteGame,
+        listings,
+        onCreateListingSubmit,
+        onListingEditSubmit,
+        getListing,
+        deleteListing,
     }
 
     return (
-        <GameContext.Provider value={contextValues}>
+        <ListingContext.Provider value={contextValues}>
             {children}
-        </GameContext.Provider>
+        </ListingContext.Provider>
     );
 };
 
-export const useGameContext = () => {
-    const context = useContext(GameContext);
+export const useListingContext = () => {
+    const context = useContext(ListingContext);
 
     return context;
 }

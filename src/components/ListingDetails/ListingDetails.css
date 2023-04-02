@@ -65,3 +65,36 @@
     margin: 0 0 30px 25px;
     border-radius: 30px;
 }
+
+
+.listing-details .delete-button,
+.listing-details .edit-button {
+    color: #fff;
+    padding: 8px 20px;
+    text-decoration: none;
+    display: inline-block;
+    margin-top: 10px;
+    margin-right: 10px;
+    background-color: var(--complimentary);
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+    justify-content: center;
+    transition: all 0.2s ease-in-out;
+    -webkit-transition: all 0.2s ease-in-out;
+    -moz-transition: all 0.2s ease-in-out;
+    -ms-transition: all 0.2s ease-in-out;
+    -o-transition: all 0.2s ease-in-out;
+}
+
+.listing-details .edit-button {
+    margin-left: 25px;
+}
+
+.listing-details .delete-button:hover,
+.listing-details .edit-button:hover {
+    background-color: var(--lightBlue);
+    scale: calc(105%)
+}
