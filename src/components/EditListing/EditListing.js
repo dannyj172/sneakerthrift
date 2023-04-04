@@ -27,6 +27,7 @@ export const EditListing = () => {
             .then(result => {
                 changeValues(result);
             })
+        // eslint-disable-next-line
     }, [listingId]);
 
     return (

@@ -18,6 +18,13 @@ export const listingServiceFactory = (token) => {
         return listings;
     }
 
+    const getMine = async (userId) => {
+        const result = await request.get(`${url}?where=_ownerId%3D%22${userId}%22`);
+        // const listings = Object.values(result);
+
+        return result;
+    }
+
     const getOne = async (listingId) => {
         const result = await request.get(`${url}/${listingId}`);
 
@@ -41,5 +48,6 @@ export const listingServiceFactory = (token) => {
         create,
         edit,
         delete: deleteListing,
+        getMine,
     }
 }

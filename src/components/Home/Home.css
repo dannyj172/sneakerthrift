@@ -173,6 +173,7 @@
     -moz-border-radius: .25em;
     -ms-border-radius: .25em;
     -o-border-radius: .25em;
+    text-align: center;
 }
 
 .home .listing-button:hover {

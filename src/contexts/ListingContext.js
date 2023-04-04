@@ -16,6 +16,7 @@ export const ListingProvider = ({
             .then(result => {
                 setListings(result)
             })
+        // eslint-disable-next-line
     }, []);
 
     const onCreateListingSubmit = async (data) => {

@@ -15,6 +15,7 @@ import { Register } from './components/Register/Register';
 import { CreateListing } from './components/CreateListing/CreateListing';
 import { EditListing } from './components/EditListing/EditListing';
 import { Logout } from './components/Logout/Logout';
+import { MyListings } from './components/MyListings/MyListings';
 
 function App() {
   return (
@@ -28,6 +29,7 @@ function App() {
             <Route path='/logout' element={<Logout />} />
             <Route path='/register' element={<Register />} />
             <Route path='/catalog' element={<Catalog />} />
+            <Route path='/my-listings' element={<MyListings />} />
             <Route path='/catalog/:listingId' element={<ListingDetails />} />
             <Route path='/create-listing' element={<CreateListing />} />
             <Route path='/catalog/:listingId/edit' element={<EditListing />} />

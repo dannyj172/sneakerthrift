@@ -1,28 +1,42 @@
-import React from 'react'
 import { Link } from 'react-router-dom';
+import { useState } from 'react';
+
 import './Home.css';
 import { testimonialsData } from "../../data/testimonialsData";
-import { useState } from 'react';
 import leftArrow from "../../assets/leftArrow.png";
 import rightArrow from "../../assets/rightArrow.png";
 import { motion } from 'framer-motion';
-
 import showcase1 from "../../assets/showcase-1.jpg"
 import showcase2 from "../../assets/showcase-2.jpg"
 import showcase3 from "../../assets/showcase-3.jpg"
-import ebay1 from "../../assets/ebay1.jpg"
-import ebay2 from "../../assets/ebay2.jpg"
-import ebay3 from "../../assets/ebay3.jpg"
 import vans from "../../assets/logo-vans.png"
 import nike from "../../assets/logo-nike.png"
 import adidas from "../../assets/logo-adidas.png"
 import supreme from "../../assets/logo-supreme.png"
 import reebok from "../../assets/logo-reebok.png"
 
+import { LatestListingsItem } from './LatestListingsItem/LatestListingsItem';
+import { listingServiceFactory } from '../../services/listingService';
+import { useService } from '../../hooks/useService';
+import { useEffect } from 'react';
+
 export const Home = () => {
-    const transition = { type: "spring", duration: 1 }
+    const [listings, setListings] = useState([]);
+    const listingService = useService(listingServiceFactory);
+
     const [selected, setSelected] = useState(0);
+    const transition = { type: "spring", duration: 1 }
     const tLength = testimonialsData.length;
+
+    useEffect(() => {
+        listingService.getAll()
+            .then(result => {
+                let toSet = result.reverse()
+                setListings(toSet)
+            })
+        // eslint-disable-next-line
+    }, []);
+
     return (
         <div className='home'>
 
@@ -35,7 +49,7 @@ export const Home = () => {
                         whileInView={{ scale: 1 }}
                         transition={transition}
                     >
-                        <Link to="#" className="btn home-button">See what we have</Link>
+                        <Link to="/catalog" className="btn home-button">See what we have</Link>
                     </motion.div>
                 </div>
             </div>
@@ -46,46 +60,17 @@ export const Home = () => {
                 <img className='showcase-img' src={showcase3} alt='showcase' />
             </div>
 
-            <div className="listings-container">
-                <h2 className="listings-title">Latest Listings</h2>
-                <div className='listings'>
+            {listings.length !== 0 && (
+                <div className="listings-container">
+                    <h2 className="listings-title">Latest Listings</h2>
+                    <div className='listings'>
 
-                    <div className="card">
-                        <div className="listing-image">
-                            <img src={ebay1} alt="..." />
-                        </div>
-                        <div className="listing-content">
-                            <h3>DARK GREEN FOREST NIKE AIR FORCE 1 LIMITED</h3>
-                            <p>$15.00</p>
-                            <button className="btn listing-button">View Listing</button>
-                        </div>
-                    </div>
+                        {listings.slice(0, 3).map(x => <LatestListingsItem key={x._id} {...x} />)}
 
-                    <div className="card">
-                        <div className="listing-image">
-                            <img src={ebay2} alt="..." />
-                        </div>
-                        <div className="listing-content">
-                            <h3>NIKE AIR FORCE 1 UTILITY (GS) BLACK-GUM BROWN SZ 6 123 456 789</h3>
-                            <p>$100.00</p>
-                            <button className="btn listing-button">View Listing</button>
-                        </div>
-                    </div>
-
-                    <div className="card">
-                        <div className="listing-image">
-                            <img src={ebay3} alt="..." />
-                        </div>
-                        <div className="listing-content">
-                            <h3>nike air force 1 mid SF AF1 youth shoes size 6.5 mushroom</h3>
-                            <p>$30</p>
-                            <button className="btn listing-button">View Listing</button>
-                        </div>
                     </div>
 
                 </div>
-
-            </div>
+            )}
 
             <div className="testimonials">
                 <div className="left-t">

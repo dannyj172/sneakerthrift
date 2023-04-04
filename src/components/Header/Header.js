@@ -13,19 +13,12 @@ export const Header = () => {
                 <h1>SNEAKER<span>THRIFT</span></h1>
             </div>
 
-            {/* <ul className='header-menu'>
-                <Link to="#">Home</Link>
-                <Link to="#">Catalog</Link>
-                <Link to="#">Create Listing</Link>
-                <Link to="#">Logout</Link>
-                <Link to="#">Login</Link>
-                <Link to="#">Register</Link>
-            </ul> */}
             <ul className='header-menu'>
                 <Link className='links' to="/">Home</Link>
                 <Link className='links' to="/catalog">Catalog</Link>
                 {isAuthenticated && (
                     <>
+                        <Link className='links' to="/my-listings">My Listings</Link>
                         <Link className='links' to="/create-listing">Create Listing</Link>
                         <Link className='links' to="/logout">Logout</Link>
                     </>

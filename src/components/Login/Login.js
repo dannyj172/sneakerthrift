@@ -57,7 +57,6 @@ export const Login = () => {
                     />
                     <label htmlFor="pass" className="form__label">Password</label>
                 </div>
-
                 <div className="div__submit">
                     <input type="submit" className="form__button" value="Login" />
                 </div>

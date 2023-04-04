@@ -23,3 +23,6 @@ export const create = async (listingId, comment) => {
     return result;
 };
 
+// const deleteListing = (listingId) => request.delete(`${url}/${listingId}`);
+
+export const deleteComment = (commentId) => request.delete(`${baseUrl}/${commentId}`)
