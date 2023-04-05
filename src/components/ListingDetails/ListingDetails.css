@@ -66,6 +66,16 @@
     border-radius: 30px;
 }
 
+.listing-details svg {
+    color: var(--complimentary);
+    font-size: 40px;
+    margin-left: 25px;
+}
+
+.listing-details path {
+    pointer-events: none;
+}
+
 
 .listing-details .delete-button,
 .listing-details .edit-button {

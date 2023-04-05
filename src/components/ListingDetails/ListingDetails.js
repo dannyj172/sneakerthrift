@@ -21,6 +21,8 @@ export const ListingDetails = () => {
     const listingService = useService(listingServiceFactory)
     const navigate = useNavigate();
 
+
+
     useEffect(() => {
         Promise.all([
             listingService.getOne(listingId),
@@ -35,7 +37,8 @@ export const ListingDetails = () => {
 
                 dispatch({ type: 'LISTING_FETCH', payload: listingState })
             })
-    }, [listingId, listingService]);
+        // eslint-disable-next-line
+    }, [listingId]);
 
     const onCommentSubmit = async (values) => {
         if (values.comment !== '') {
@@ -116,12 +119,13 @@ export const ListingDetails = () => {
             </div>
 
             <div className="listing-comment-section">
-                <h1>Comments:</h1>
+                {listing.comments && listing.comments.length !== 0 && (
+                    <h1>Comments:</h1>
+                )}
 
                 {isAuthenticated && <AddComment onCommentSubmit={onCommentSubmit} />}
 
                 <div className="comments">
-
                     <ul>
                         {listing.comments && listing.comments.map(x => (
                             <li key={x._id} className='comment'>
@@ -134,11 +138,8 @@ export const ListingDetails = () => {
                             </li>
                         ))}
                     </ul>
-
                 </div>
-
             </div>
-
         </div>
 
     )

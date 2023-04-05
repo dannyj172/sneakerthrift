@@ -1,11 +1,42 @@
-import React from 'react';
 import './Footer.css';
 
+import { useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
+import emailjs from '@emailjs/browser'
 
 export const Footer = () => {
+
+    const [showPopup, setShowPopup] = useState(false);
+
+    const form = useRef()
+
+    const sendEmail = (e) => {
+        e.preventDefault();
+        emailjs.sendForm('service_z3t8a2nn', 'template_172382341231', form.current, 'JB9zZW5YUBkCck2gK')
+            .then((result) => {
+                console.log(result.text);
+            }, (error) => {
+                console.log(error.text);
+            });
+        form.current.reset()
+
+        setShowPopup(true);
+
+        setTimeout(() => {
+            setShowPopup(false);
+        }, 4000);
+
+    };
+
+
     return (
         <div className="footer-container">
+            {showPopup && (
+                <div className="popup">
+                    <p className="popup-text">Welcome!</p>
+                </div>
+            )}
+
             <div className="footer">
                 <div className="footer-heading footer-1">
                     <h2>About us</h2>
@@ -30,8 +61,10 @@ export const Footer = () => {
                 </div>
                 <div className="footer-email-form">
                     <h2>Join us</h2>
-                    <input type="email" placeholder="Enter your email address" className="footer-email" />
-                    <input type="submit" value="Submit" className="footer-email-btn" />
+                    <form ref={form} onSubmit={sendEmail}>
+                        <input type="email" name="user_email" placeholder="Enter your email address" className="footer-email" />
+                        <input type="submit" value="Submit" className="footer-email-btn" />
+                    </form>
                 </div>
             </div>
         </div>

@@ -6,7 +6,7 @@ export const authServiceFactory = (token) => {
     const request = requestFactory(token);
     return {
         login: (data) => request.post(`${baseUrl}/login`, data),
-        register: (data) => request.post(`${baseUrl}/register`, data), //to add info like username or avatar you need to add that info with payload
+        register: (data) => request.post(`${baseUrl}/register`, data),
         logout: () => request.get(`${baseUrl}/logout`)
     }
 
