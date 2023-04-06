@@ -10,10 +10,8 @@ export const useForm = (initialValues, onSubmitHandler) => {
     const onSubmit = (e) => {
         e.preventDefault();
 
-        //look at last exam to figure out how we did errors
-        //if values are correct do this V
         onSubmitHandler(values);
-        // else find way to display div with error message
+
         setValues(initialValues);
     }
 

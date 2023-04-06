@@ -8,6 +8,7 @@ export const ListingProvider = ({
     children,
 }) => {
     const navigate = useNavigate();
+    const [errors, setErrors] = useState();
     const [listings, setListings] = useState([]);
     const listingService = listingServiceFactory(); // auth.accessToken
 
@@ -19,21 +20,144 @@ export const ListingProvider = ({
         // eslint-disable-next-line
     }, []);
 
-    const onCreateListingSubmit = async (data) => {
-        const newListing = await listingService.create(data);
+    const onCreateListingSubmit = async (values) => {
+        let validImage;
+        if (!values.title || !values.phonenumber || !values.price || !values.imageUrl || !values.description) {
+            setErrors("Input fields cannot be empty!")
+            setTimeout(() => {
+                setErrors();
+            }, 4000);
+        } else if (values.title.length < 7) {
+            setErrors("Please enter a more specific title!")
+            setTimeout(() => {
+                setErrors();
+            }, 4000);
+        } else if (values.title.length > 80) {
+            setErrors("Your title is too long!")
+            setTimeout(() => {
+                setErrors();
+            }, 4000);
+        } else if (values.phonenumber.length > 15 || values.phonenumber.length < 5) {
+            setErrors("Please enter a valid phone number!")
+            setTimeout(() => {
+                setErrors();
+            }, 4000);
+        } else if (values.phonenumber.includes('.')) {
+            setErrors("Please enter a valid phone number!")
+            setTimeout(() => {
+                setErrors();
+            }, 4000);
+        } else if (values.price.length > 6) {
+            setErrors("Your price is too high!")
+            setTimeout(() => {
+                setErrors();
+            }, 4000);
+        } else if (values.description.length < 7) {
+            setErrors("Please enter a more detailed description!")
+            setTimeout(() => {
+                setErrors();
+            }, 4000);
+        } else if (values.description.length > 500) {
+            setErrors("Your description is too long!")
+            setTimeout(() => {
+                setErrors();
+            }, 4000);
+        } else {
+            const regex = new RegExp("^https?://")
+            if (regex.test(values.imageUrl)) {
+                validImage = true;
+                console.log('test')
+            } else {
+                validImage = false;
+                setErrors("Your image link is not valid!")
+                setTimeout(() => {
+                    setErrors();
+                }, 4000);
+            }
 
-        setListings(state => [...state, newListing]);
-
-        navigate('/catalog');
+            if (validImage) {
+                if (values.price.includes('.')) {
+                    const newListing = await listingService.create({ ...values, price: (Math.round(values.price)).toString() });
+                    setListings(state => [...state, newListing]);
+                    navigate('/catalog');
+                } else {
+                    const newListing = await listingService.create(values);
+                    setListings(state => [...state, newListing]);
+                    navigate('/catalog');
+                }
+            }
+        }
     }
 
 
     const onListingEditSubmit = async (values) => {
-        const result = await listingService.edit(values._id, values);
+        let validImage;
+        if (!values.title || !values.phonenumber || !values.price || !values.imageUrl || !values.description) {
+            setErrors("Input fields cannot be empty!")
+            setTimeout(() => {
+                setErrors();
+            }, 4000);
+        } else if (values.title.length < 7) {
+            setErrors("Please enter a more specific title!")
+            setTimeout(() => {
+                setErrors();
+            }, 4000);
+        } else if (values.title.length > 80) {
+            setErrors("Your title is too long!")
+            setTimeout(() => {
+                setErrors();
+            }, 4000);
+        } else if (values.phonenumber.length > 15 || values.phonenumber.length < 5) {
+            setErrors("Please enter a valid phone number!")
+            setTimeout(() => {
+                setErrors();
+            }, 4000);
+        } else if (values.phonenumber.includes('.')) {
+            setErrors("Please enter a valid phone number!")
+            setTimeout(() => {
+                setErrors();
+            }, 4000);
+        } else if (values.price.length > 6) {
+            setErrors("Your price is too high!")
+            setTimeout(() => {
+                setErrors();
+            }, 4000);
+        } else if (values.description.length < 7) {
+            setErrors("Please enter a more detailed description!")
+            setTimeout(() => {
+                setErrors();
+            }, 4000);
+        } else if (values.description.length > 500) {
+            setErrors("Your description is too long!")
+            setTimeout(() => {
+                setErrors();
+            }, 4000);
+        } else {
+            const regex = new RegExp("^https?://")
+            if (regex.test(values.imageUrl)) {
+                validImage = true;
+                console.log('test')
+            } else {
+                validImage = false;
+                setErrors("Your image link is not valid!")
+                setTimeout(() => {
+                    setErrors();
+                }, 4000);
+            }
 
-        setListings(state => state.map(x => x._id === values._id ? result : x))
+            if (validImage) {
+                if (values.price.includes('.')) {
+                    const result = await listingService.edit(values._id, { ...values, price: (Math.round(values.price)).toString() });
+                    setListings(state => state.map(x => x._id === values._id ? result : x))
+                    navigate(`/catalog/${values._id}`);
+                } else {
+                    const result = await listingService.edit(values._id, values);
+                    setListings(state => state.map(x => x._id === values._id ? result : x))
+                    navigate(`/catalog/${values._id}`);
+                }
+            }
+        }
 
-        navigate(`/catalog/${values._id}`);
     }
 
     const getListing = (listingId) => {
@@ -45,6 +169,7 @@ export const ListingProvider = ({
     }
 
     const contextValues = {
+        errors,
         listings,
         onCreateListingSubmit,
         onListingEditSubmit,

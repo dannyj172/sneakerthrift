@@ -100,20 +100,3 @@
     -webkit-transition: all 0.2s ease-in-out;
     transition: all 0.2s ease-in-out;
 }
-
-.popup {
-    position: fixed;
-    top: 10%;
-    right: 5%;
-    padding: 10px 30px;
-    background: rgb(86, 156, 162);
-    background: linear-gradient(149deg, rgba(86, 156, 162, 1) 0%, rgba(147, 192, 196, 1) 55%);
-    color: white;
-    font-size: 24px;
-    max-width: 300px;
-    border-radius: 2%;
-    -webkit-border-radius: 2%;
-    -moz-border-radius: 2%;
-    -ms-border-radius: 2%;
-    -o-border-radius: 2%;
-}

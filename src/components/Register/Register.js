@@ -4,10 +4,11 @@ import authenticationImage from "../../assets/Authentication_Two Color.svg";
 import { useContext } from "react"
 import { useForm } from "../../hooks/useForm"
 import { AuthContext } from "../../contexts/AuthContext"
+import Popup from "../Popup/Popup";
 
 export const Register = () => {
 
-    const { onRegisterSubmit } = useContext(AuthContext);
+    const { errors, onRegisterSubmit } = useContext(AuthContext);
     const { values, changeHandler, onSubmit } = useForm({
         email: '',
         password: '',
@@ -16,6 +17,10 @@ export const Register = () => {
 
     return (
         <div className="register-container">
+
+            {errors && (
+                <Popup text={errors}></Popup>
+            )}
 
             <img src={authenticationImage} alt="img" className="register__image" />
 

@@ -7,10 +7,11 @@ import { useForm } from "../../hooks/useForm";
 import { useService } from "../../hooks/useService";
 import { listingServiceFactory } from "../../services/listingService";
 import { useListingContext } from "../../contexts/ListingContext";
+import Popup from "../Popup/Popup";
 
 export const EditListing = () => {
 
-    const { onListingEditSubmit } = useListingContext();
+    const { errors, onListingEditSubmit } = useListingContext();
     const { listingId } = useParams();
     const listingService = useService(listingServiceFactory);
     const { values, changeHandler, onSubmit, changeValues } = useForm({
@@ -32,6 +33,10 @@ export const EditListing = () => {
 
     return (
         <div className="edit-container">
+
+            {errors && (
+                <Popup text={errors}></Popup>
+            )}
 
             <form method="post" onSubmit={onSubmit} className="form">
                 <h1 className="form__title">Edit Listing</h1>

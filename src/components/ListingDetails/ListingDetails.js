@@ -1,6 +1,6 @@
 import "./ListingDetails.css";
 
-import { useEffect, useReducer } from 'react';
+import { useEffect, useReducer, useState } from 'react';
 import { useNavigate, useParams, Link } from 'react-router-dom';
 
 import { listingServiceFactory } from '../../services/listingService';
@@ -11,12 +11,14 @@ import { useAuthContext } from '../../contexts/AuthContext';
 import { AddComment } from './AddComment/AddComment';
 import { listingReducer } from '../../reducers/listingReducer';
 import { useListingContext } from '../../contexts/ListingContext';
+import Popup from "../Popup/Popup";
 
 export const ListingDetails = () => {
 
     const { listingId } = useParams();
     const { userId, isAuthenticated, userEmail } = useAuthContext();
     const { deleteListing } = useListingContext();
+    const [errors, setErrors] = useState();
     const [listing, dispatch] = useReducer(listingReducer, {})
     const listingService = useService(listingServiceFactory)
     const navigate = useNavigate();
@@ -41,7 +43,17 @@ export const ListingDetails = () => {
     }, [listingId]);
 
     const onCommentSubmit = async (values) => {
-        if (values.comment !== '') {
+        if (!values.comment) {
+            setErrors("Input field cannot be empty!")
+            setTimeout(() => {
+                setErrors();
+            }, 4000);
+        } else if (values.comment.length > 700) {
+            setErrors("Your comment is too long!")
+            setTimeout(() => {
+                setErrors();
+            }, 4000);
+        } else {
             const response = await commentService.create(listingId, values.comment);
 
             dispatch({
@@ -49,8 +61,6 @@ export const ListingDetails = () => {
                 payload: response,
                 userEmail,
             })
-        } else {
-            return;
         }
 
     }
@@ -84,6 +94,9 @@ export const ListingDetails = () => {
 
     return (
         <div className="listing-container">
+            {errors && (
+                <Popup text={errors}></Popup>
+            )}
             <div className="listing">
                 <div className="listing-details">
                     <img src={listing.imageUrl} alt="img" />
@@ -119,7 +132,8 @@ export const ListingDetails = () => {
             </div>
 
             <div className="listing-comment-section">
-                {listing.comments && listing.comments.length !== 0 && (
+
+                {((listing.comments && listing.comments.length !== 0) || isAuthenticated) && (
                     <h1>Comments:</h1>
                 )}
 

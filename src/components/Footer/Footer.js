@@ -3,38 +3,48 @@ import './Footer.css';
 import { useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import emailjs from '@emailjs/browser'
+import Popup from '../Popup/Popup';
+import { useForm } from '../../hooks/useForm';
 
 export const Footer = () => {
 
-    const [showPopup, setShowPopup] = useState(false);
-
+    const [showPopup, setShowPopup] = useState();
     const form = useRef()
 
-    const sendEmail = (e) => {
-        e.preventDefault();
-        emailjs.sendForm('service_z3t8a2nn', 'template_172382341231', form.current, 'JB9zZW5YUBkCck2gK')
-            .then((result) => {
-                console.log(result.text);
-            }, (error) => {
-                console.log(error.text);
-            });
-        form.current.reset()
+    const onJoinSubmit = (values) => {
+        if (!values.user_email) {
+            setShowPopup('Please enter an email address!');
+            setTimeout(() => {
+                setShowPopup();
+            }, 4000);
+        } else if (values.user_email.length < 4) {
+            setShowPopup('Please enter a valid email address!');
+            setTimeout(() => {
+                setShowPopup();
+            }, 4000);
+        } else {
+            emailjs.sendForm('service_z3t8a2nn', 'template_172382341231', form.current, 'JB9zZW5YUBkCck2gK')
+                .then((result) => {
+                    console.log(result.text);
+                }, (error) => {
+                    console.log(error.text);
+                });
 
-        setShowPopup(true);
+            setShowPopup('Welcome!');
+            setTimeout(() => {
+                setShowPopup();
+            }, 4000);
+        }
+    }
 
-        setTimeout(() => {
-            setShowPopup(false);
-        }, 4000);
-
-    };
-
+    const { values, changeHandler, onSubmit } = useForm({
+        user_email: ''
+    }, onJoinSubmit);
 
     return (
         <div className="footer-container">
             {showPopup && (
-                <div className="popup">
-                    <p className="popup-text">Welcome!</p>
-                </div>
+                <Popup text={showPopup}></Popup>
             )}
 
             <div className="footer">
@@ -61,8 +71,13 @@ export const Footer = () => {
                 </div>
                 <div className="footer-email-form">
                     <h2>Join us</h2>
-                    <form ref={form} onSubmit={sendEmail}>
+                    {/* <form ref={form} onSubmit={sendEmail}>
                         <input type="email" name="user_email" placeholder="Enter your email address" className="footer-email" />
+                        <input type="submit" value="Submit" className="footer-email-btn" />
+                    </form> */}
+                    <form ref={form} onSubmit={onSubmit}>
+                        <input type="email" name="user_email" placeholder="Enter your email address" className="footer-email" value={values.user_email}
+                            onChange={changeHandler} />
                         <input type="submit" value="Submit" className="footer-email-btn" />
                     </form>
                 </div>

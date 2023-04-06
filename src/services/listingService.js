@@ -13,8 +13,6 @@ export const listingServiceFactory = (token) => {
     const getAll = async () => {
         const result = await request.get(url);
         const listings = Object.values(result);
-
-
         return listings;
     }
 

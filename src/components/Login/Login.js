@@ -3,10 +3,11 @@ import authenticationImage from "../../assets/Authentication_Two Color.svg";
 
 import { useAuthContext } from "../../contexts/AuthContext";
 import { useForm } from "../../hooks/useForm";
+import Popup from "../Popup/Popup";
 
 export const Login = () => {
 
-    const { onLoginSubmit } = useAuthContext();
+    const { errors, onLoginSubmit } = useAuthContext();
     const { values, changeHandler, onSubmit } = useForm({
         email: '',
         password: '',
@@ -14,6 +15,10 @@ export const Login = () => {
 
     return (
         <div className="login-container">
+
+            {errors && (
+                <Popup text={errors}></Popup>
+            )}
 
             <img src={authenticationImage} alt="img" className="login__image" />
 

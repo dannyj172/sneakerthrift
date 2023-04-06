@@ -60,7 +60,7 @@ export const Home = () => {
                 <img className='showcase-img' src={showcase3} alt='showcase' />
             </div>
 
-            {listings.length !== 0 && (
+            {(listings && listings.length !== 0) && (
                 <div className="listings-container">
                     <h2 className="listings-title">Latest Listings</h2>
                     <div className='listings'>

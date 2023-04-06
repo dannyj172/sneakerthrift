@@ -2,10 +2,11 @@ import "./CreateListing.css";
 
 import { useForm } from '../../hooks/useForm';
 import { useListingContext } from '../../contexts/ListingContext';
+import Popup from "../Popup/Popup";
 
 export const CreateListing = () => {
 
-    const { onCreateListingSubmit } = useListingContext();
+    const { errors, onCreateListingSubmit } = useListingContext();
     const { values, changeHandler, onSubmit } = useForm({
         title: '',
         phonenumber: '',
@@ -16,6 +17,10 @@ export const CreateListing = () => {
 
     return (
         <div className="create-container">
+
+            {errors && (
+                <Popup text={errors}></Popup>
+            )}
 
             <form method="post" onSubmit={onSubmit} className="form">
                 <h1 className="form__title">Create Listing</h1>
@@ -28,7 +33,6 @@ export const CreateListing = () => {
                         placeholder=" "
                         value={values.title}
                         onChange={changeHandler}
-                    // maxLength={70}
                     />
                     <label htmlFor="title" className="form__label">Title</label>
                 </div>
