@@ -16,6 +16,7 @@ import { CreateListing } from './components/CreateListing/CreateListing';
 import { EditListing } from './components/EditListing/EditListing';
 import { Logout } from './components/Logout/Logout';
 import { MyListings } from './components/MyListings/MyListings';
+import { RouteGuard } from './components/common/RouteGuard';
 
 function App() {
   return (
@@ -31,8 +32,10 @@ function App() {
             <Route path='/catalog' element={<Catalog />} />
             <Route path='/my-listings' element={<MyListings />} />
             <Route path='/catalog/:listingId' element={<ListingDetails />} />
-            <Route path='/create-listing' element={<CreateListing />} />
-            <Route path='/catalog/:listingId/edit' element={<EditListing />} />
+            <Route element={<RouteGuard />}>
+              <Route path='/create-listing' element={<CreateListing />} />
+              <Route path='/catalog/:listingId/edit' element={<EditListing />} />
+            </Route>
             <Route path='*' element={<NotFound />} />
           </Routes>
           <Footer />
