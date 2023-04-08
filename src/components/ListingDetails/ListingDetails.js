@@ -83,8 +83,8 @@ export const ListingDetails = () => {
         toHide.classList.remove('hidden');
     }
 
-    const onCommentDelete = (commentId) => {
-        commentService.deleteComment(commentId);
+    const onCommentDelete = async (commentId) => {
+        await commentService.deleteComment(commentId);
         dispatch({
             type: 'COMMENT_DELETE',
             payload: commentId,
@@ -117,6 +117,7 @@ export const ListingDetails = () => {
                     )}
                 </div>
             </div>
+
 
             <div className="listing-delete-wrapper hidden">
                 <div className='listing-delete'>

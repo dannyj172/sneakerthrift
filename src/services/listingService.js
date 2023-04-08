@@ -18,7 +18,6 @@ export const listingServiceFactory = (token) => {
 
     const getMine = async (userId) => {
         const result = await request.get(`${url}?where=_ownerId%3D%22${userId}%22`);
-        // const listings = Object.values(result);
 
         return result;
     }

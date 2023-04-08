@@ -66,7 +66,7 @@ export const ListingProvider = ({
             const regex = new RegExp("^https?://")
             if (regex.test(values.imageUrl)) {
                 validImage = true;
-                console.log('test')
+
             } else {
                 validImage = false;
                 setErrors("Your image link is not valid!")
@@ -136,7 +136,7 @@ export const ListingProvider = ({
             const regex = new RegExp("^https?://")
             if (regex.test(values.imageUrl)) {
                 validImage = true;
-                console.log('test')
+
             } else {
                 validImage = false;
                 setErrors("Your image link is not valid!")

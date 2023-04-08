@@ -35,6 +35,7 @@ export const AuthProvider = ({
         } else {
             try {
                 const result = await authService.login(values);
+
                 setAuth(result);
                 navigate('/catalog');
 
@@ -110,7 +111,6 @@ export const AuthProvider = ({
         userEmail: auth.email,
         isAuthenticated: !!auth.accessToken,
     };
-
     return (
         <>
             <AuthContext.Provider value={contextValues}>

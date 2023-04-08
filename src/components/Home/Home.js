@@ -31,8 +31,7 @@ export const Home = () => {
     useEffect(() => {
         listingService.getAll()
             .then(result => {
-                let toSet = result.reverse()
-                setListings(toSet)
+                setListings(result.reverse().slice(0, 3))
             })
         // eslint-disable-next-line
     }, []);
@@ -65,7 +64,7 @@ export const Home = () => {
                     <h2 className="listings-title">Latest Listings</h2>
                     <div className='listings'>
 
-                        {listings.slice(0, 3).map(x => <LatestListingsItem key={x._id} {...x} />)}
+                        {listings.map(x => <LatestListingsItem key={x._id} {...x} />)}
 
                     </div>
 

@@ -17,7 +17,6 @@ export const MyListings = () => {
         listingService.getMine(userId)
             .then(result => {
                 setListings(result)
-                console.log(listings)
             })
         // eslint-disable-next-line
     }, [userId]);
